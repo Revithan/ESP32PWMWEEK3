@@ -1,0 +1,29 @@
+/*#include <Arduino.h>
+int sw1 = 15;
+#define ledg1 23
+#define ledy1 19
+#define ledr1 18
+#define ledg2 5
+#define ledy2 17
+#define ledr2 16
+int buttonState = 0;
+int k = 0;
+
+void setup()
+{
+  pinMode(sw1, INPUT_PULLUP);
+  pinMode(ledg1, OUTPUT);
+  pinMode(ledy1, OUTPUT);
+  pinMode(ledr1, OUTPUT);
+  pinMode(ledr2, OUTPUT);
+  pinMode(ledy2, OUTPUT);
+  pinMode(ledg2, OUTPUT);
+
+  digitalWrite(ledy1, LOW);
+  digitalWrite(ledr1, LOW);
+  digitalWrite(ledg1, LOW);
+  digitalWrite(ledy2, LOW);
+  digitalWrite(ledr2, LOW);
+  digitalWrite(ledg2, LOW);
+}
+Week 2*/

@@ -1,77 +1,86 @@
 #include <Arduino.h>
-int sw1 = 15;
-#define ledg1 23
-#define ledy1 19
-#define ledr1 18
-#define ledg2 5
-#define ledy2 17
-#define ledr2 16
-int buttonState = 0;
-int k = 0;
-
-void setup()
-{
-  pinMode(sw1, INPUT_PULLUP);
-  pinMode(ledg1, OUTPUT);
-  pinMode(ledy1, OUTPUT);
-  pinMode(ledr1, OUTPUT);
-  pinMode(ledr2, OUTPUT);
-  pinMode(ledy2, OUTPUT);
-  pinMode(ledg2, OUTPUT);
-
-  digitalWrite(ledy1, LOW);
-  digitalWrite(ledr1, LOW);
-  digitalWrite(ledg1, LOW);
-  digitalWrite(ledy2, LOW);
-  digitalWrite(ledr2, LOW);
-  digitalWrite(ledg2, LOW);
+/*
+int ledPin = 23;
+void setup(){
+  ledcAttachPin(ledPin, 0);
+  ledcSetup(0, 5000, 8);
 }
 
-void loop()
-{
-
-  while (k == 1)
-  {
-    digitalWrite(ledy1, HIGH);
-    digitalWrite(ledr1, HIGH);
-    digitalWrite(ledg1, HIGH);
-    digitalWrite(ledy2, HIGH);
-    digitalWrite(ledr2, HIGH);
-    digitalWrite(ledg2, HIGH);
-    delay(1000);
-    digitalWrite(ledy1, LOW);
-    digitalWrite(ledr1, LOW);
-    digitalWrite(ledg1, LOW);
-    digitalWrite(ledy2, LOW);
-    digitalWrite(ledr2, LOW);
-    digitalWrite(ledg2, LOW);
-    delay(1000);
-    while (digitalRead(sw1) == HIGH)
-      k = 0;
+void loop(){
+  for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){
+    ledcWrite(0,dutyCycle);
+    delay(10);
   }
-
-  while (k == 0)
-  {
-    digitalWrite(ledg1, HIGH);
-    digitalWrite(ledr2, HIGH);
-    delay(1000);
-    digitalWrite(ledg1, LOW);
-    digitalWrite(ledy1, HIGH);
-    delay(1000);
-    digitalWrite(ledr2, LOW);
-    digitalWrite(ledg2, HIGH);
-    digitalWrite(ledy1, LOW);
-    digitalWrite(ledr1, HIGH);
-    delay(1000);
-    digitalWrite(ledg2, LOW);
-    digitalWrite(ledy2, HIGH);
-    delay(1000);
-    digitalWrite(ledr1, LOW);
-    digitalWrite(ledg1, HIGH);
-    digitalWrite(ledy2, LOW);
-    digitalWrite(ledr2, HIGH);
-    delay(1000);
-    while (digitalRead(sw1) == HIGH)
-      k = 1;
+  for(int dutyCycle = 255; dutyCycle <= 0; dutyCycle--){
+    ledcWrite(0,dutyCycle);
+    delay(10);
   }
-}
+}*/
+  int potPin = 36;
+  int ledPin1 = 23;
+  int ledPin2 = 19;
+  int ledPin3 = 18;
+  int ledPin4 = 5;
+  int ledPin5 = 17;
+  int ledPin6 = 16;
+  int ledPin7 = 4;
+  int ledPin8 = 0;
+
+   void setup() {
+    pinMode(ledPin1,OUTPUT);
+    pinMode(ledPin2,OUTPUT);
+    pinMode(ledPin3,OUTPUT);
+    pinMode(ledPin4,OUTPUT);
+    pinMode(ledPin5,OUTPUT);
+    pinMode(ledPin6,OUTPUT);
+    pinMode(ledPin7,OUTPUT);
+    pinMode(ledPin8,OUTPUT);
+   }
+
+   void loop() {
+    int potValue = analogRead(potPin);
+    if(analogRead(potValue >= 500)){
+      digitalWrite(ledPin1,HIGH);
+      digitalWrite(ledPin2,LOW);
+      digitalWrite(ledPin3,LOW);
+      digitalWrite(ledPin4,LOW);
+      digitalWrite(ledPin5,LOW);
+      digitalWrite(ledPin6,LOW);
+      digitalWrite(ledPin7,LOW);
+      digitalWrite(ledPin8,LOW);
+      delay(10);
+    }
+    else if(analogRead(potValue >= 1000)){
+      digitalWrite(ledPin1,HIGH);
+      digitalWrite(ledPin2,HIGH);
+      digitalWrite(ledPin3,HIGH);
+       digitalWrite(ledPin4,LOW);
+      digitalWrite(ledPin5,LOW);
+      digitalWrite(ledPin6,LOW);
+      digitalWrite(ledPin7,LOW);
+      digitalWrite(ledPin8,LOW);
+      delay(10);
+    }
+     else if(analogRead(potValue >= 2000)){
+      digitalWrite(ledPin1,HIGH);
+      digitalWrite(ledPin2,HIGH);
+      digitalWrite(ledPin3,HIGH);
+      digitalWrite(ledPin4,HIGH);
+      digitalWrite(ledPin5,HIGH);
+       digitalWrite(ledPin6,LOW);
+      digitalWrite(ledPin7,LOW);
+      digitalWrite(ledPin8,LOW);
+      delay(10);
+    }
+    else{
+      digitalWrite(ledPin1,HIGH);
+      digitalWrite(ledPin2,HIGH);
+      digitalWrite(ledPin3,HIGH);
+      digitalWrite(ledPin4,HIGH);
+      digitalWrite(ledPin5,HIGH);
+      digitalWrite(ledPin6,HIGH);
+      digitalWrite(ledPin7,HIGH);
+      digitalWrite(ledPin8,HIGH);
+      delay(10);
+    }
+   }
