@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "week2": "cpp"
+        "week2": "cpp",
+        "test": "cpp"
     }
 }
